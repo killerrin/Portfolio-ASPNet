@@ -5,3 +5,12 @@ C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Model\bin\Debug\Po
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Model\obj\Debug\Portfolio.Model.csprojResolveAssemblyReference.cache
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Model\obj\Debug\Portfolio.Model.dll
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Model\obj\Debug\Portfolio.Model.pdb
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Model\bin\Debug\Portfolio.Model.dll.config
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Model\bin\Debug\EntityFramework.dll
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Model\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Model\bin\Debug\EntityFramework.xml
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Model\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml

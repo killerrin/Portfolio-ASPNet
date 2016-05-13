@@ -15,3 +15,7 @@ C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.DAL\obj\Debug\Port
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.DAL\obj\Debug\Portfolio.DAL.Migrations.UserAndRoles.resources
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.DAL\obj\Debug\Portfolio.DAL.csproj.GenerateResource.Cache
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.DAL\obj\Debug\Portfolio.DAL.Migrations.PortfolioCategories.resources
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.DAL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.DAL\bin\Debug\Microsoft.AspNet.Identity.Core.xml

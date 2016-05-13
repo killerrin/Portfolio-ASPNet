@@ -11,3 +11,7 @@ C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\obj\Debug\Portfolio.Services.csprojResolveAssemblyReference.cache
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\obj\Debug\Portfolio.Services.dll
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\obj\Debug\Portfolio.Services.pdb
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\Microsoft.AspNet.Identity.Core.xml
