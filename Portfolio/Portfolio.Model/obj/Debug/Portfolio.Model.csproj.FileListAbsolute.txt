@@ -1,0 +1,7 @@
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Model\bin\Debug\Portfolio.Model.dll
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Model\bin\Debug\Portfolio.Model.pdb
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Model\bin\Debug\Portfolio.Contracts.dll
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Model\bin\Debug\Portfolio.Contracts.pdb
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Model\obj\Debug\Portfolio.Model.csprojResolveAssemblyReference.cache
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Model\obj\Debug\Portfolio.Model.dll
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Model\obj\Debug\Portfolio.Model.pdb
