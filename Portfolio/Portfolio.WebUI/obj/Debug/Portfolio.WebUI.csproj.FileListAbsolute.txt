@@ -87,3 +87,6 @@ C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\Microsof
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\obj\Debug\Portfolio.WebUI.csprojResolveAssemblyReference.cache
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\obj\Debug\Portfolio.WebUI.dll
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\obj\Debug\Portfolio.WebUI.pdb
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\BCrypt.Net.dll
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\BCrypt.Net.pdb
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\BCrypt.Net.xml

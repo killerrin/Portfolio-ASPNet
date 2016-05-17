@@ -1,5 +1,5 @@
 ﻿using Portfolio.Contracts.Repositories;
-using Portfolio.Model;
+using Portfolio.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

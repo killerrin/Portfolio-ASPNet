@@ -2,7 +2,7 @@ using System;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using Portfolio.Contracts.Repositories;
-using Portfolio.Model;
+using Portfolio.Models;
 using Portfolio.DAL.Repositories;
 
 namespace Portfolio.WebUI.App_Start

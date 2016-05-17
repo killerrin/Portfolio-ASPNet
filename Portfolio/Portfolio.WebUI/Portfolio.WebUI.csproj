@@ -191,6 +191,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
+    <Compile Include="Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -233,8 +235,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -257,9 +258,9 @@
       <Project>{378403ea-2c11-496b-a83e-7cd0f01f4457}</Project>
       <Name>Portfolio.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Portfolio.Model\Portfolio.Model.csproj">
+    <ProjectReference Include="..\Portfolio.Model\Portfolio.Models.csproj">
       <Project>{013bcd3c-865d-4670-8df6-b5499f6aed46}</Project>
-      <Name>Portfolio.Model</Name>
+      <Name>Portfolio.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\Portfolio.Services\Portfolio.Services.csproj">
       <Project>{00024d50-b815-49ef-8d10-f9a8cd38bf48}</Project>

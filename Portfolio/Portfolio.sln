@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.Model", "Portfolio.Model\Portfolio.Model.csproj", "{013BCD3C-865D-4670-8DF6-B5499F6AED46}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.Models", "Portfolio.Model\Portfolio.Models.csproj", "{013BCD3C-865D-4670-8DF6-B5499F6AED46}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.DAL", "Portfolio.DAL\Portfolio.DAL.csproj", "{378403EA-2C11-496B-A83E-7CD0F01F4457}"
 EndProject

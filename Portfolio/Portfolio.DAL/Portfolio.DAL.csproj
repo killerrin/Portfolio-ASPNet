@@ -50,6 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DataContext.cs" />
+    <Compile Include="Extensions\GenericExtensions.cs" />
+    <Compile Include="Extensions\IntExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Migrations\201605130653240_UserAndRoles.cs" />
     <Compile Include="Migrations\201605130653240_UserAndRoles.Designer.cs">
       <DependentUpon>201605130653240_UserAndRoles.cs</DependentUpon>
@@ -75,9 +78,9 @@
       <Project>{67d523b3-1cf9-4f3f-ba28-4f4ef80134d9}</Project>
       <Name>Portfolio.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Portfolio.Model\Portfolio.Model.csproj">
+    <ProjectReference Include="..\Portfolio.Model\Portfolio.Models.csproj">
       <Project>{013bcd3c-865d-4670-8df6-b5499f6aed46}</Project>
-      <Name>Portfolio.Model</Name>
+      <Name>Portfolio.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

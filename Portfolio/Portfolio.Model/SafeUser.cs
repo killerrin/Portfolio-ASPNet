@@ -10,22 +10,11 @@ using System.Threading.Tasks;
 
 namespace Portfolio.Models
 {
-    public class User
+    public class SafeUser
     {
-        [Key]
         public int UserID { get; set; }
         public string Username { get; set; }
 
-        [DataType(DataType.EmailAddress)]
-        public string Email { get; set; }
-
-        [DataType(DataType.Password)]
-        public string PasswordHash { get; set; }
-
-        public virtual ICollection<Role> Roles { get; set; }
-        public User()
-        {
-            Roles = new List<Role>();
-        }
+        public SafeUser() { }
     }
 }
