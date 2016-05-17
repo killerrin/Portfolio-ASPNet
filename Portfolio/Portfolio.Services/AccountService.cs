@@ -12,11 +12,11 @@ using System.Web.Mvc;
 
 namespace Portfolio.Services
 {
-    public class LoginService
+    public class AccountService
     {
         public ModelStateDictionary Errors { get; protected set; }
 
-        public LoginService(ModelStateDictionary modelState)
+        public AccountService(ModelStateDictionary modelState)
         {
             SetModelState(modelState);
         }
@@ -32,6 +32,7 @@ namespace Portfolio.Services
         {
             UserRepository userRepo = new UserRepository(new DAL.Data.DataContext());
 
+            // Grab the User based off of their Username
             var user = userRepo.GetAll().Where(x => x.Username.Equals(loginInfo.Username)).FirstOrDefault();
             if (user != null)
             {

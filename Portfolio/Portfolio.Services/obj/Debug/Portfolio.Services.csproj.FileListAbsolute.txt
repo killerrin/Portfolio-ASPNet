@@ -14,3 +14,16 @@ C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\obj\Debug
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\BCrypt.Net.dll
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\BCrypt.Net.pdb
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\BCrypt.Net.xml
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\System.Web.Helpers.dll
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\System.Web.Mvc.dll
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\System.Web.Razor.dll
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\System.Web.WebPages.dll
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\System.Web.Helpers.xml
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\System.Web.Mvc.xml
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\System.Web.Razor.xml
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\System.Web.WebPages.xml
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\System.Web.WebPages.Razor.xml

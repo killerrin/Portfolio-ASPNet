@@ -1,9 +1,11 @@
 ﻿using Portfolio.DAL.Repositories;
 using Portfolio.Models.Forms;
 using Portfolio.Services;
+using Portfolio.WebUI.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -36,7 +38,7 @@ namespace Portfolio.WebUI.Controllers
         [HttpPost]
         public ActionResult Login(LoginAccountForm form)
         {
-            LoginService loginService = new LoginService(ModelState);
+            AccountService loginService = new AccountService(ModelState);
             var user = loginService.Login(form);
             if (user != null)
             {
@@ -49,13 +51,19 @@ namespace Portfolio.WebUI.Controllers
 
         public ActionResult CreateAccount()
         {
+            if (!AppSettings.Values.AllowAccountCreation)
+                return RedirectToRoute("Default");
+
             return View(new CreateAccountForm());
         }
 
         [HttpPost]
         public ActionResult CreateAccount(CreateAccountForm form)
         {
-            LoginService loginService = new LoginService(ModelState);
+            if (!AppSettings.Values.AllowAccountCreation)
+                return RedirectToRoute("Default");
+
+            AccountService loginService = new AccountService(ModelState);
             var user = loginService.CreateAccount(form);
             if (user != null)
             {
