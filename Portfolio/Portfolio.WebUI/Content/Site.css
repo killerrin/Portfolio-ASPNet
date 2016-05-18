@@ -1,14 +1,10 @@
-﻿body {
-    padding-top: 50px;
+﻿html, body { height:100%; }
+body {
+    padding-top: 70px;
     padding-bottom: 20px;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
+/* Bootstrap Override */
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -23,14 +19,48 @@ textarea {
     max-width: 280px;
 }
 
+/* Navbar */
+.navbar-brand {
+    padding-top: 10px;
+    padding-bottom: 0;
+}
+.navbar-brand small {
+  display:block;
+  margin-top:-4px;
+  padding-top:0;
 
-/* Social Footer */
-.social {
-
+  font-size:12px;
+  text-align:center;
 }
 
-/* Social Images*/
-.social .row div a {
+.navUserDropdown .dropdown-toggle {
+    margin: 0 0 0 0;
+    padding: 0 5px 0 0;
+}
+
+/* Main Site Content */
+.siteContentWrap { min-height: 100%; }
+.siteContent {
+    padding-bottom: 80px;
+}
+
+/* Site Footer */
+.siteFooter {
+    position: relative;
+
+    background: rgba(255,255,255,1);
+
+    width: 100%;
+    height: 100px;
+
+    margin-top:-80px;
+}
+
+.copyright { }
+.copyright p { }
+
+/* Social Images */
+.social div a {
     display: inline-block;
     margin: 5px;
     
@@ -39,17 +69,17 @@ textarea {
     transition: opacity 0.6s, -webkit-transform 0.4s;
     transition: opacity 0.6s, transform 0.4s
 }
-.social .row div a:hover {
+.social div a:hover {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
     opacity: 0.8
 }
 
-.social .row div a img {
+.social div a img {
     width: 60px;
 }
 
-/* Copyright */
-.social .row p {
-
+/* Other */
+.clickable {
+    cursor: pointer;   
 }

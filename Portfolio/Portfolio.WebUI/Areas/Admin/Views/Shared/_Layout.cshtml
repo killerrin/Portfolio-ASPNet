@@ -9,7 +9,7 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -17,16 +17,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="@Url.RouteUrl("Home")">Andrew Godfroy <small>Portfolio</small></a>
+                @Html.ActionLink("Andrew Godfroy", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     @{
-                        //var categoryRepo = new Portfolio.DAL.Repositories.CategoryRepository(new Portfolio.DAL.Data.DataContext());
-                        //foreach (var category in categoryRepo.GetAll())
-                        //{
-                        //    <li>@category.Name</li>
-                        //}
+                        var categoryRepo = new Portfolio.DAL.Repositories.CategoryRepository(new Portfolio.DAL.Data.DataContext());
+                        foreach (var category in categoryRepo.GetAll())
+                        {
+                            <li>@category.Name</li>
+                        }
                     }
                 </ul>
 
@@ -71,28 +71,24 @@
                 </ul>
             </div>
         </div>
-    </nav>
-
-    <div class="siteContentWrap">
-        <div class="container siteContent">
-            @RenderBody()
-        </div>
     </div>
-
-    <footer class="siteFooter">
-        <div class="container">
-            <div class="row social">
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="social">
+            <div class="row">
                 <div class="text-center">
                     <a href="https://ca.linkedin.com/in/andrewgodfroy"><img src="~/Images/Social/LinkedIn.png" /></a>
                     <a href="https://github.com/killerrin"><img src="~/Images/Social/GitHub.png" /></a>
                     <a href="https://twitter.com/killerrin"><img src="~/Images/Social/Twitter.png" /></a>
                 </div>
             </div>
-            <div class="row copyright">
-                <p class="text-center">&copy; @DateTime.UtcNow.Year - Andrew Godfroy</p>
+            <hr />
+            <div class="row">
+                <p class="text-center">&copy; @DateTime.Now.Year - Andrew Godfroy</p>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

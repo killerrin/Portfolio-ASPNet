@@ -69,6 +69,18 @@ namespace Portfolio.DAL.Extensions
             return rawString;
         }
 
+        public static System.Tuple<int, string> SeperateIdAndSlug(this string idAndSlug)
+        {
+            var matches = Regex.Match(idAndSlug, @"^(\d+)\-(.*)?$");
+            if (!matches.Success)
+                return null;
+
+            var id = int.Parse(matches.Result("$1"));
+            var slug = matches.Result("$2");
+
+            return Tuple.Create(id, slug);
+        }
+
         public static string CreateMD5(this string input)
         {
             // Use input string to calculate MD5 hash

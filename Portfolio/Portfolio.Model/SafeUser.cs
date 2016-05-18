@@ -12,9 +12,17 @@ namespace Portfolio.Models
 {
     public class SafeUser
     {
-        public int UserID { get; set; }
+        public int UserId { get; set; }
         public string Username { get; set; }
 
         public SafeUser() { }
+
+        public static implicit operator SafeUser(User user)
+        {
+            SafeUser safeUser = new SafeUser();
+            safeUser.UserId = user.UserId;
+            safeUser.Username = user.Username;
+            return safeUser;
+        }
     }
 }

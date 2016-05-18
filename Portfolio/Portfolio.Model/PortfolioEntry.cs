@@ -10,7 +10,7 @@ namespace Portfolio.Models
     public class PortfolioEntry
     {
         [Key]
-        public int PortfolioEntryID { get; set; }
+        public int PortfolioEntryId { get; set; }
         public string Name { get; set; }
         public string Slug { get; set; }
 

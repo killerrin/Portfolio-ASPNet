@@ -26,6 +26,8 @@ namespace Portfolio.DAL.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Roles.AddOrUpdate(new Models.Role("Admin"));
         }
     }
 }

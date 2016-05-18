@@ -24,6 +24,9 @@ namespace Portfolio.WebUI
             routes.MapRoute("Login", "login", new { controller = "Account", Action = "Login" }, namespaces);
             routes.MapRoute("Logout", "logout", new { controller = "Account", Action = "Logout" }, namespaces);
 
+            // Portfolio Entry and Tags
+
+
             // As a last resort, default to Home
             routes.MapRoute(
                 name: "Default",

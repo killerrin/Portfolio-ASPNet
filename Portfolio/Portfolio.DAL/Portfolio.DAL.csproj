@@ -53,13 +53,13 @@
     <Compile Include="Extensions\GenericExtensions.cs" />
     <Compile Include="Extensions\IntExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
-    <Compile Include="Migrations\201605130653240_UserAndRoles.cs" />
-    <Compile Include="Migrations\201605130653240_UserAndRoles.Designer.cs">
-      <DependentUpon>201605130653240_UserAndRoles.cs</DependentUpon>
+    <Compile Include="Migrations\201605180146406_UsersAndRoles.cs" />
+    <Compile Include="Migrations\201605180146406_UsersAndRoles.Designer.cs">
+      <DependentUpon>201605180146406_UsersAndRoles.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201605130654508_PortfolioCategories.cs" />
-    <Compile Include="Migrations\201605130654508_PortfolioCategories.Designer.cs">
-      <DependentUpon>201605130654508_PortfolioCategories.cs</DependentUpon>
+    <Compile Include="Migrations\201605180147492_PortfolioItems.cs" />
+    <Compile Include="Migrations\201605180147492_PortfolioItems.Designer.cs">
+      <DependentUpon>201605180147492_PortfolioItems.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,11 +88,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605130653240_UserAndRoles.resx">
-      <DependentUpon>201605130653240_UserAndRoles.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605180146406_UsersAndRoles.resx">
+      <DependentUpon>201605180146406_UsersAndRoles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605130654508_PortfolioCategories.resx">
-      <DependentUpon>201605130654508_PortfolioCategories.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605180147492_PortfolioItems.resx">
+      <DependentUpon>201605180147492_PortfolioItems.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -191,21 +191,45 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Models\IndexCategoryViewModel.cs" />
     <Compile Include="Auth.cs" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\CreateCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\EditCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\CreateFramework.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\EditFramework.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\CreatePlatform.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\EditPlatform.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\CreateProgrammingLanguage.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\EditProgrammingLanguage.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\CreateTag.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\EditTag.cshtml" />
     <None Include="PrivateSettings.config" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Exceptions\AppSettingNotFoundException.cs" />
     <Compile Include="Infrastructure\AppSettings.cs" />
+    <Compile Include="Infrastructure\PagedData.cs" />
+    <Compile Include="Infrastructure\RoleProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Content Include="Content\bootstrap-sortable.css" />
     <Content Include="Images\Social\GitHub.png" />
     <Content Include="Images\Social\LinkedIn.png" />
     <Content Include="Images\Social\Twitter.png" />
+    <Content Include="Scripts\bootstrap-sortable.js" />
     <Content Include="Views\Account\CreateAccount.cshtml" />
+    <Content Include="Views\Errors\Error.cshtml" />
+    <Content Include="Views\Errors\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />

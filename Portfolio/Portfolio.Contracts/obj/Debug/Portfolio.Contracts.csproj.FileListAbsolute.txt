@@ -1,5 +1,4 @@
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Contracts\bin\Debug\Portfolio.Contracts.dll
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Contracts\bin\Debug\Portfolio.Contracts.pdb
-C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Contracts\obj\Debug\Portfolio.Contracts.csprojResolveAssemblyReference.cache
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Contracts\obj\Debug\Portfolio.Contracts.dll
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Contracts\obj\Debug\Portfolio.Contracts.pdb

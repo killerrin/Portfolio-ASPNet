@@ -12,6 +12,6 @@ C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.DAL\bin\Debug\Enti
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.DAL\obj\Debug\Portfolio.DAL.csprojResolveAssemblyReference.cache
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.DAL\obj\Debug\Portfolio.DAL.dll
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.DAL\obj\Debug\Portfolio.DAL.pdb
-C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.DAL\obj\Debug\Portfolio.DAL.Migrations.UserAndRoles.resources
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.DAL\obj\Debug\Portfolio.DAL.Migrations.UsersAndRoles.resources
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.DAL\obj\Debug\Portfolio.DAL.csproj.GenerateResource.Cache
-C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.DAL\obj\Debug\Portfolio.DAL.Migrations.PortfolioCategories.resources
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.DAL\obj\Debug\Portfolio.DAL.Migrations.PortfolioItems.resources

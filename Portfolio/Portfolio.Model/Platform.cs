@@ -10,8 +10,10 @@ namespace Portfolio.Models
     public class Platform
     {
         [Key]
-        public int PlatformID { get; set; }
+        public int PlatformId { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Slug { get; set; }
 
         public virtual ICollection<PortfolioEntry> PortfolioEntries { get; set; }

@@ -1,0 +1,149 @@
+﻿@model Portfolio.WebUI.Areas.Admin.Models.IndexCategoryViewModel
+
+@{
+    ViewBag.Title = "Categories";
+}
+
+<h2>
+    Categories
+    <a href="@Url.Action("CreateCategory")" class="btn pull-right">New</a>
+</h2>
+<table class="table table-striped sortable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Slug</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model.Categories) {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => category.CategoryId)</td>
+                <td>@Html.DisplayFor(modelItem => category.Name)</td>
+                <td>@Html.DisplayFor(modelItem => category.Slug)</td>
+                <td>
+                    @Html.ActionLink("Edit", "EditCategory", new { id= category.CategoryId }) |
+                    @Html.ActionLink("Delete", "DeleteCategory", new { id= category.CategoryId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>
+    Frameworks
+    <a href="@Url.Action("CreateFramework")" class="btn pull-right">New</a>
+</h2>
+<table class="table table-striped sortable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Slug</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var framework in Model.Frameworks)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => framework.FrameworkId)</td>
+                <td>@Html.DisplayFor(modelItem => framework.Name)</td>
+                <td>@Html.DisplayFor(modelItem => framework.Slug)</td>
+                <td>
+                    @Html.ActionLink("Edit", "EditFramework", new { id = framework.FrameworkId }) |
+                    @Html.ActionLink("Delete", "DeleteFramework", new { id = framework.FrameworkId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>
+    Platforms
+    <a href="@Url.Action("CreatePlatform")" class="btn pull-right">New</a>
+</h2>
+<table class="table table-striped sortable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Slug</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var platform in Model.Platforms)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => platform.PlatformId)</td>
+                <td>@Html.DisplayFor(modelItem => platform.Name)</td>
+                <td>@Html.DisplayFor(modelItem => platform.Slug)</td>
+                <td>
+                    @Html.ActionLink("Edit", "EditPlatform", new { id = platform.PlatformId }) |
+                    @Html.ActionLink("Delete", "DeletePlatform", new { id = platform.PlatformId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>
+    Programming Languages
+    <a href="@Url.Action("CreateProgrammingLanguage")" class="btn pull-right">New</a>
+</h2>
+<table class="table table-striped sortable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Slug</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var programmingLanguage in Model.ProgrammingLanguages)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => programmingLanguage.ProgrammingLanguageId)</td>
+                <td>@Html.DisplayFor(modelItem => programmingLanguage.Name)</td>
+                <td>@Html.DisplayFor(modelItem => programmingLanguage.Slug)</td>
+                <td>
+                    @Html.ActionLink("Edit", "EditProgrammingLanguage", new { id = programmingLanguage.ProgrammingLanguageId }) |
+                    @Html.ActionLink("Delete", "DeleteProgrammingLanguage", new { id = programmingLanguage.ProgrammingLanguageId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>
+    Tags
+    <a href="@Url.Action("CreateTag")" class="btn pull-right">New</a>
+</h2>
+<table class="table table-striped sortable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Slug</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tag in Model.Tags)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => tag.TagId)</td>
+                <td>@Html.DisplayFor(modelItem => tag.Name)</td>
+                <td>@Html.DisplayFor(modelItem => tag.Slug)</td>
+                <td>
+                    @Html.ActionLink("Edit", "EditTag", new { id = tag.TagId }) |
+                    @Html.ActionLink("Delete", "DeleteTag", new { id = tag.TagId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

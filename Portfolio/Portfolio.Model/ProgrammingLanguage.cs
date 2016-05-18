@@ -10,8 +10,10 @@ namespace Portfolio.Models
     public class ProgrammingLanguage
     {
         [Key]
-        public int ProgrammingLanguageID { get; set; }
+        public int ProgrammingLanguageId { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Slug { get; set; }
 
         public virtual ICollection<PortfolioEntry> PortfolioEntries { get; set; }

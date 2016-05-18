@@ -10,8 +10,10 @@ namespace Portfolio.Models
     public class Category
     {
         [Key]
-        public int CategoryID { get; set; }
+        public int CategoryId { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Slug { get; set; }
 
         public virtual ICollection<PortfolioEntry> PortfolioEntries { get; set; }

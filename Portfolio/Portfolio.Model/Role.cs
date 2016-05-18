@@ -10,12 +10,16 @@ namespace Portfolio.Models
     public class Role
     {
         [Key]
-        public int RoleID { get; set; }
+        public int RoleId { get; set; }
+        [Required]
         public string Name { get; set; }
 
         public virtual ICollection<User> Users { get; set; }
-        public Role()
+
+        public Role() : this("") { }
+        public Role(string name)
         {
+            Name = name;
             Users = new List<User>();
         }
     }

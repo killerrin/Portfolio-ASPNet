@@ -10,8 +10,10 @@ namespace Portfolio.Models
     public class Tag
     {
         [Key]
-        public int TagID { get; set; }
+        public int TagId { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Slug { get; set; }
 
         public virtual ICollection<PortfolioEntry> PortfolioEntries { get; set; }

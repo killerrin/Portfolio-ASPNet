@@ -1,9 +1,11 @@
 ﻿using Portfolio.DAL.Extensions;
 using Portfolio.DAL.Repositories;
+using Portfolio.Model.Enums;
 using Portfolio.Models;
 using Portfolio.Models.Forms;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -53,7 +55,7 @@ namespace Portfolio.Services
             // Preform Validation
             if (!ValidateUsername(newAccount.Username)) { Errors.AddModelError(nameof(newAccount.Username), "Username is Invalid"); }
             if (!ValidateEmail(newAccount.Email)) { Errors.AddModelError(nameof(newAccount.Email), "Email is Invalid"); }
-            if (!ValidatePassword(newAccount.Password)) { Errors.AddModelError(nameof(newAccount.Password), "Password is Invalid"); }
+            if (!ValidatePassword(newAccount.Password)) { Errors.AddModelError(nameof(newAccount.Password), "Password is not strong enough"); }
 
             // Ensure there are no duplicate users
             var allUsers = userRepo.GetAll();
@@ -86,31 +88,66 @@ namespace Portfolio.Services
             return expiry <= DateTime.UtcNow;
         }
 
-        public static bool ValidateUsername(string _username)
+        public static bool ValidateUsername(string username)
         {
-            if (!IntExtensions.IsBetween(_username.Length, 1, 40))
+            if (!IntExtensions.IsBetween(username.Length, 1, 40))
                 return false;
 
-            if (!Regex.IsMatch(_username, @"^[a-zA-Z0-9\s]"))
+            if (!Regex.IsMatch(username, @"^[a-zA-Z0-9\s]"))
                 return false;
 
             return true;
         }
 
-        public static bool ValidateEmail(string _email)
+        public static bool ValidateEmail(string email)
         {
-            if (Regex.IsMatch(_email, @"^[\w!#$%&'*+/=?`{|}~^-]+(?:\.[!#$%&'*+/=?`{|}~^-]+)*@(?:[A-Z0-9-]+\.)+[A-Z]{2,6}$"))
+            if (Regex.IsMatch(email, @"^[\w!#$%&'*+/=?`{|}~^-]+(?:\.[!#$%&'*+/=?`{|}~^-]+)*@(?:[A-Z0-9-]+\.)+[A-Z]{2,6}$"))
                 return false;
             return true;
         }
 
-        public static bool ValidatePassword(string _password)
+        public const PasswordScore MinimumPasswordStrength = PasswordScore.Medium;
+        public static bool ValidatePassword(string password)
         {
-            // Check password contains at least one digit, one lower case 
-            // letter, one uppercase letter, and is between 8 and 10 characters long
-            if (!Regex.IsMatch(_password, @"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$"))
-                return false;
-            return true;
+            PasswordScore passwordStrength = CheckPasswordStrength(password);
+            Debug.WriteLine($"{passwordStrength.ToString()}");
+            if ((int)passwordStrength >= (int)MinimumPasswordStrength)
+                return true;
+            return false;
+        }
+
+        public static PasswordScore CheckPasswordStrength(string password)
+        {
+            int score = 0;
+
+            if (string.IsNullOrWhiteSpace(password) || password.Length < 1)
+                return PasswordScore.Blank;
+
+            if (password.Length < 4)
+                return PasswordScore.VeryWeak;
+
+            if (password.Length >= 8)
+                score++;
+            if (password.Length >= 10)
+                score++;
+
+            if (Regex.Match(password, @"\d", RegexOptions.ECMAScript).Success)
+            {
+                score++;
+            }
+
+            if (Regex.Match(password, @"[a-z]", RegexOptions.ECMAScript).Success && Regex.Match(password, @"[A-Z]", RegexOptions.ECMAScript).Success)
+            {
+                score++;
+            }
+
+            if (Regex.Match(password, @"[!,@,#,$,%,^,&,*,?,_,~,-,£,(,)]", RegexOptions.ECMAScript).Success)
+            {
+                score++;
+            }
+
+            Debug.WriteLine($"Password: {password}, Length: {password.Length}, Score: {score}");
+            return (PasswordScore)score;
         }
     }
 }
