@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using Portfolio.WebUI.Areas.Admin.Controllers;
+using System.Web.Mvc;
 
 namespace Portfolio.WebUI.Areas.Admin
 {
@@ -14,10 +15,14 @@ namespace Portfolio.WebUI.Areas.Admin
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
+            var namespaces = new[] { typeof(CategoryController).Namespace };
+
+            context.MapRoute("AdminCategory", "admin/categories", new { controller = "Category", action = "Index" }, namespaces);
+
             context.MapRoute(
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { controller = "Category", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

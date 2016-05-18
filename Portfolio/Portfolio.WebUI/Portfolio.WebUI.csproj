@@ -227,6 +227,8 @@
     <Content Include="Images\Social\LinkedIn.png" />
     <Content Include="Images\Social\Twitter.png" />
     <Content Include="Scripts\bootstrap-sortable.js" />
+    <Content Include="Scripts\Forms.js" />
+    <Content Include="Scripts\Frontend.js" />
     <Content Include="Views\Account\CreateAccount.cshtml" />
     <Content Include="Views\Errors\Error.cshtml" />
     <Content Include="Views\Errors\NotFound.cshtml" />

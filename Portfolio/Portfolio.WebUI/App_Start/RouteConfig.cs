@@ -17,6 +17,8 @@ namespace Portfolio.WebUI
 
             // Set the Home Route
             routes.MapRoute("Home", "", new { controller = "Home", action = "Index" }, namespaces);
+            routes.MapRoute("About", "about", new { controller = "Home", action = "About" }, namespaces);
+            routes.MapRoute("Contact", "contact", new { controller = "Home", action = "Contact" }, namespaces);
 
             // Account
             routes.MapRoute("AccountSettings", "account", new { controller = "Account", Action = "Index" }, namespaces);

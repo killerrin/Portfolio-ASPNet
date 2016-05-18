@@ -21,18 +21,19 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+
                     @{
-                        //var categoryRepo = new Portfolio.DAL.Repositories.CategoryRepository(new Portfolio.DAL.Data.DataContext());
-                        //foreach (var category in categoryRepo.GetAll())
-                        //{
-                        //    <li>@category.Name</li>
-                        //}
+                        var categoryRepo = new Portfolio.DAL.Repositories.CategoryRepository(new Portfolio.DAL.Data.DataContext());
+                        foreach (var category in categoryRepo.GetAll())
+                        {
+                            <li><a href="#">@category.Name</a></li>
+                        }
                     }
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li><a href="@Url.RouteUrl("About")">About</a></li>
+                    <li><a href="@Url.RouteUrl("Contact")">Contact</a></li>
 
                     @{
                         var user = Auth.User;
@@ -51,7 +52,7 @@
                                 <ul class="dropdown-menu">
                                     @if (User.IsInRole("Admin"))
                                     {
-                                        <li><a href="#">Admin Panel</a></li>
+                                        <li><a href="@Url.RouteUrl("AdminCategory")">Admin Panel</a></li>
                                     }
 
                                     <li>
@@ -76,6 +77,7 @@
     <div class="siteContentWrap">
         <div class="container siteContent">
             @RenderBody()
+            <br />
         </div>
     </div>
 
@@ -83,9 +85,9 @@
         <div class="container">
             <div class="row social">
                 <div class="text-center">
-                    <a href="https://ca.linkedin.com/in/andrewgodfroy"><img src="~/Images/Social/LinkedIn.png" /></a>
-                    <a href="https://github.com/killerrin"><img src="~/Images/Social/GitHub.png" /></a>
-                    <a href="https://twitter.com/killerrin"><img src="~/Images/Social/Twitter.png" /></a>
+                    <a href="https://ca.linkedin.com/in/andrewgodfroy"><img src="~/Images/Social/LinkedIn.png" alt="LinkedIn"/></a>
+                    <a href="https://github.com/killerrin"><img src="~/Images/Social/GitHub.png" alt="GitHub"/></a>
+                    <a href="https://twitter.com/killerrin"><img src="~/Images/Social/Twitter.png" alt="Twitter"/></a>
                 </div>
             </div>
             <div class="row copyright">
