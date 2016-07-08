@@ -10,6 +10,14 @@ namespace Portfolio.DAL.Data
 {
     public class DataContext : DbContext
     {
+        //public static DataContext Instance { get; private set; }
+        //public static void BeginTransaction() { Instance = new DataContext(); }
+        //public static void EndTransaction()
+        //{
+        //    //Instance.Dispose();
+        //    Instance = null;
+        //}
+
         /// <summary>
         /// You can either pass the NAME of a connection string (e.g. from a web.config), and explicitly declare it.
         /// </summary>
@@ -32,8 +40,8 @@ namespace Portfolio.DAL.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Framework> Frameworks { get; set; }
         public DbSet<Platform> Platforms { get; set; }
-        public DbSet<PortfolioEntry> PortfolioEntries { get; set; }
         public DbSet<ProgrammingLanguage> ProgrammingLanguages { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<PortfolioEntry> PortfolioEntries { get; set; }
     }
 }

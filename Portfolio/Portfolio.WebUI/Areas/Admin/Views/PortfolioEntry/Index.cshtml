@@ -1,0 +1,21 @@
+﻿@model Portfolio.WebUI.Areas.Admin.Models.IndexPortfolioEntryViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>
+    Portfolio Entries
+    <a href="@Url.Action("Create")" class="btn pull-right">New</a>
+</h2>
+<hr />
+
+<h3>Published</h3>
+@Html.Partial("_PortfolioEntriesList", Model.Published)
+
+<h3>Unpublished</h3>
+@Html.Partial("_PortfolioEntriesList", Model.Unpublished)
+
+<form class="hidden" id="anti-forgery-form">
+    @Html.AntiForgeryToken()
+</form>

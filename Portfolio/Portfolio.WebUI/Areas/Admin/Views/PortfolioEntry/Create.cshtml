@@ -1,0 +1,243 @@
+﻿@model Portfolio.WebUI.Areas.Admin.Models.PortfolioEntryForm
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-horizontal">
+                <h4>PortfolioEntryForm</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Slug, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Slug, new { htmlAttributes = new { @class = "form-control", data_slug = "#Name" } })
+                        @Html.ValidationMessageFor(model => model.Slug, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CoverImageUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.CoverImageUrl, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CoverImageUrl, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.VideoEmbedUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.VideoEmbedUrl, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.VideoEmbedUrl, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SourceControlUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SourceControlUrl, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SourceControlUrl, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EmbedUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.EmbedUrl, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EmbedUrl, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Features, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Features, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Features, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Screenshots, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Screenshots, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Screenshots, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.WebsiteUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.WebsiteUrl, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.WebsiteUrl, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.GooglePlayStoreUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.GooglePlayStoreUrl, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.GooglePlayStoreUrl, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AppleAppStoreUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.AppleAppStoreUrl, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AppleAppStoreUrl, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MicrosoftWindowsStoreUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.MicrosoftWindowsStoreUrl, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MicrosoftWindowsStoreUrl, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.OtherMarketplaceUrls, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.OtherMarketplaceUrls, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.OtherMarketplaceUrls, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading">Categories</div>
+                <div class="panel-body">
+                    <ul class="checkbox-select">
+                        @for (var i = 0; i < Model.CheckedCategories.Count; i++)
+                        {
+                            <li>
+                                @Html.HiddenFor(x => x.CheckedCategories[i].ID)
+
+                                @Html.DisplayFor(x => x.CheckedCategories[i].Name)
+                                @Html.HiddenFor(x => x.CheckedCategories[i].Name)
+
+                                @Html.CheckBoxFor(x => x.CheckedCategories[i].IsChecked)
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div class="panel panel-info">
+                <div class="panel-heading">Programming Languages</div>
+                <div class="panel-body">
+                    <ul class="checkbox-select">
+                        @for (var i = 0; i < Model.CheckedProgrammingLanguages.Count; i++)
+                        {
+                            <li>
+                                @Html.HiddenFor(x => x.CheckedProgrammingLanguages[i].ID)
+
+                                @Html.DisplayFor(x => x.CheckedProgrammingLanguages[i].Name)
+                                @Html.HiddenFor(x => x.CheckedProgrammingLanguages[i].Name)
+
+                                @Html.CheckBoxFor(x => x.CheckedProgrammingLanguages[i].IsChecked)
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div class="panel panel-info">
+                <div class="panel-heading">Frameworks</div>
+                <div class="panel-body">
+                    <ul class="checkbox-select">
+                        @for (var i = 0; i < Model.CheckedFrameworks.Count; i++)
+                        {
+                            <li>
+                                @Html.HiddenFor(x => x.CheckedFrameworks[i].ID)
+
+                                @Html.DisplayFor(x => x.CheckedFrameworks[i].Name)
+                                @Html.HiddenFor(x => x.CheckedFrameworks[i].Name)
+
+                                @Html.CheckBoxFor(x => x.CheckedFrameworks[i].IsChecked)
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div class="panel panel-info">
+                <div class="panel-heading">Platforms</div>
+                <div class="panel-body">
+                    <ul class="checkbox-select">
+                        @for (var i = 0; i < Model.CheckedPlatforms.Count; i++)
+                        {
+                            <li>
+                                @Html.HiddenFor(x => x.CheckedPlatforms[i].ID)
+
+                                @Html.DisplayFor(x => x.CheckedPlatforms[i].Name)
+                                @Html.HiddenFor(x => x.CheckedPlatforms[i].Name)
+
+                                @Html.CheckBoxFor(x => x.CheckedPlatforms[i].IsChecked)
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div class="panel panel-info">
+                <div class="panel-heading">Tags</div>
+                <div class="panel-body">
+                    <ul class="checkbox-select">
+                        @for (var i = 0; i < Model.CheckedTags.Count; i++)
+                        {
+                            <li>
+                                @Html.HiddenFor(x => x.CheckedTags[i].ID)
+
+                                @Html.DisplayFor(x => x.CheckedTags[i].Name)
+                                @Html.HiddenFor(x => x.CheckedTags[i].Name)
+
+                                @Html.CheckBoxFor(x => x.CheckedTags[i].IsChecked)
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

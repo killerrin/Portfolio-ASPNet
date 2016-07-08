@@ -21,7 +21,6 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-
                     @{
                         var categoryRepo = new Portfolio.DAL.Repositories.CategoryRepository(new Portfolio.DAL.Data.DataContext());
                         foreach (var category in categoryRepo.GetAll())

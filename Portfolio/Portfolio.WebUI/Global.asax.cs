@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Portfolio.DAL.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,6 +20,16 @@ namespace Portfolio.WebUI
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+        protected void Application_BeginRequest()
+        {
+            //DataContext.BeginTransaction();
+        }
+
+        protected void Application_EndRequest()
+        {
+            //DataContext.EndTransaction();
         }
     }
 }

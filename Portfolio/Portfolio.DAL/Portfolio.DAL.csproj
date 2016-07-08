@@ -53,13 +53,13 @@
     <Compile Include="Extensions\GenericExtensions.cs" />
     <Compile Include="Extensions\IntExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
-    <Compile Include="Migrations\201605180146406_UsersAndRoles.cs" />
-    <Compile Include="Migrations\201605180146406_UsersAndRoles.Designer.cs">
-      <DependentUpon>201605180146406_UsersAndRoles.cs</DependentUpon>
+    <Compile Include="Migrations\201607080035429_User_Roles.cs" />
+    <Compile Include="Migrations\201607080035429_User_Roles.Designer.cs">
+      <DependentUpon>201607080035429_User_Roles.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201605180147492_PortfolioItems.cs" />
-    <Compile Include="Migrations\201605180147492_PortfolioItems.Designer.cs">
-      <DependentUpon>201605180147492_PortfolioItems.cs</DependentUpon>
+    <Compile Include="Migrations\201607080044206_Portfolio_Items.cs" />
+    <Compile Include="Migrations\201607080044206_Portfolio_Items.Designer.cs">
+      <DependentUpon>201607080044206_Portfolio_Items.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,11 +88,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605180146406_UsersAndRoles.resx">
-      <DependentUpon>201605180146406_UsersAndRoles.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201607080035429_User_Roles.resx">
+      <DependentUpon>201607080035429_User_Roles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605180147492_PortfolioItems.resx">
-      <DependentUpon>201605180147492_PortfolioItems.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201607080044206_Portfolio_Items.resx">
+      <DependentUpon>201607080044206_Portfolio_Items.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

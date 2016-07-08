@@ -193,7 +193,10 @@
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PortfolioEntryController.cs" />
+    <Compile Include="Areas\Admin\Models\IndexPortfolioEntryViewModel.cs" />
     <Compile Include="Areas\Admin\Models\IndexCategoryViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\PortfolioEntryForm.cs" />
     <Compile Include="Auth.cs" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
@@ -209,6 +212,9 @@
     <Content Include="Areas\Admin\Views\Category\EditProgrammingLanguage.cshtml" />
     <Content Include="Areas\Admin\Views\Category\CreateTag.cshtml" />
     <Content Include="Areas\Admin\Views\Category\EditTag.cshtml" />
+    <Content Include="Areas\Admin\Views\PortfolioEntry\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PortfolioEntry\_PortfolioEntriesList.cshtml" />
+    <Content Include="Areas\Admin\Views\PortfolioEntry\Create.cshtml" />
     <None Include="PrivateSettings.config" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorsController.cs" />

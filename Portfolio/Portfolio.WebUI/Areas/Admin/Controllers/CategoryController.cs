@@ -31,10 +31,10 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
         public ActionResult Index()
         {
             IndexCategoryViewModel viewModel = new IndexCategoryViewModel();
-            viewModel.Categories = CategoryRepo.GetAll().ToList(); ;
-            viewModel.Frameworks = FrameworkRepo.GetAll().ToList(); ;
-            viewModel.Platforms = PlatformRepo.GetAll().ToList(); ;
-            viewModel.ProgrammingLanguages = ProgrammingLanguageRepo.GetAll().ToList(); ;
+            viewModel.Categories = CategoryRepo.GetAll().ToList();
+            viewModel.Frameworks = FrameworkRepo.GetAll().ToList();
+            viewModel.Platforms = PlatformRepo.GetAll().ToList();
+            viewModel.ProgrammingLanguages = ProgrammingLanguageRepo.GetAll().ToList();
             viewModel.Tags = TagRepo.GetAll().ToList();
 
             return View(viewModel);

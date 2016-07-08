@@ -18,6 +18,7 @@ namespace Portfolio.WebUI.Areas.Admin
             var namespaces = new[] { typeof(CategoryController).Namespace };
 
             context.MapRoute("AdminCategory", "admin/categories", new { controller = "Category", action = "Index" }, namespaces);
+            context.MapRoute("AdminPortfolioEntries", "admin/portfolio-entries", new { controller = "PortfolioEntry", action = "Index" }, namespaces);
 
             context.MapRoute(
                 "Admin_default",

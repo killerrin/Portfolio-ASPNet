@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\PasswordScore.cs" />
+    <Compile Include="Forms\CheckBoxItem.cs" />
     <Compile Include="Forms\CreateAccountForm.cs" />
     <Compile Include="Forms\LoginAccountForm.cs" />
     <Compile Include="PortfolioEntry.cs" />

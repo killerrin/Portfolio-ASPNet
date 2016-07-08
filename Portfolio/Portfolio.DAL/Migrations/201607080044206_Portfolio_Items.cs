@@ -3,7 +3,7 @@ namespace Portfolio.DAL.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class PortfolioItems : DbMigration
+    public partial class Portfolio_Items : DbMigration
     {
         public override void Up()
         {

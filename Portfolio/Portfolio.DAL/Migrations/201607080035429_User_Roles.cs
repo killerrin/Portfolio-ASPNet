@@ -3,7 +3,7 @@ namespace Portfolio.DAL.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class UsersAndRoles : DbMigration
+    public partial class User_Roles : DbMigration
     {
         public override void Up()
         {

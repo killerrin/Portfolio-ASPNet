@@ -7,13 +7,13 @@ namespace Portfolio.DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class UsersAndRoles : IMigrationMetadata
+    public sealed partial class Portfolio_Items : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UsersAndRoles));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Portfolio_Items));
         
         string IMigrationMetadata.Id
         {
-            get { return "201605180146406_UsersAndRoles"; }
+            get { return "201607080044206_Portfolio_Items"; }
         }
         
         string IMigrationMetadata.Source
