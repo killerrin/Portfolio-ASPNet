@@ -1,4 +1,5 @@
 ﻿using Portfolio.DAL.Repositories;
+using Portfolio.DAL.Repositories.Collections;
 using Portfolio.Model.Forms;
 using Portfolio.Models;
 using Portfolio.WebUI.Areas.Admin.Models;
@@ -20,15 +21,15 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
         ProgrammingLanguageRepository ProgrammingLanguageRepo;
         TagRepository TagRepo;
 
-        public PortfolioEntryController(PortfolioEntryRepository portfolioEntryRepo, CategoryRepository categoryRepo, FrameworkRepository frameworkRepo, PlatformRepository platformRepo, ProgrammingLanguageRepository programmingLanguageRepo, TagRepository tagRepo)
+        public PortfolioEntryController(PortfolioRepositoryCollection repoCollection)
         {
-            PortfolioEntryRepo = portfolioEntryRepo;
+            PortfolioEntryRepo = repoCollection.PortfolioEntryRepo;
 
-            CategoryRepo = categoryRepo;
-            FrameworkRepo = frameworkRepo;
-            PlatformRepo = platformRepo;
-            ProgrammingLanguageRepo = programmingLanguageRepo;
-            TagRepo = tagRepo;
+            CategoryRepo = repoCollection.CategoryRepo;
+            FrameworkRepo = repoCollection.FrameworkRepo;
+            PlatformRepo = repoCollection.PlatformRepo;
+            ProgrammingLanguageRepo = repoCollection.ProgrammingLanguageRepo;
+            TagRepo = repoCollection.TagRepo;
         }
 
         // GET: Admin/PortfolioEntry
@@ -157,28 +158,28 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
             {
                 entry.Categories.Add(item);
             }
-
+            
             PortfolioEntryRepo.Context.Entry(entry).Collection("ProgrammingLanguages").Load();
             entry.Categories.Clear();
             foreach (var item in reconciledTags.ProgrammingLanguages)
             {
                 entry.ProgrammingLanguages.Add(item);
             }
-
+            
             PortfolioEntryRepo.Context.Entry(entry).Collection("Frameworks").Load();
             entry.Categories.Clear();
             foreach (var item in reconciledTags.Frameworks)
             {
                 entry.Frameworks.Add(item);
             }
-
+            
             PortfolioEntryRepo.Context.Entry(entry).Collection("Platforms").Load();
             entry.Categories.Clear();
             foreach (var item in reconciledTags.Platforms)
             {
                 entry.Platforms.Add(item);
             }
-
+            
             PortfolioEntryRepo.Context.Entry(entry).Collection("Tags").Load();
             entry.Categories.Clear();
             foreach (var item in reconciledTags.Tags)

@@ -1,9 +1,9 @@
 ﻿@model Portfolio.WebUI.Areas.Admin.Models.PortfolioEntryForm
 
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-9">
         <div class="form-horizontal">
-            <h4>PortfolioEntryForm</h4>
+            <h4>Portfolio Entry Form</h4>
             <hr />
 
             <div class="form-group">
@@ -121,99 +121,89 @@
 
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="panel panel-info">
             <div class="panel-heading">Categories</div>
             <div class="panel-body">
-                <ul class="checkbox-select">
-                    @for (var i = 0; i < Model.CheckedCategories.Count; i++)
-                    {
-                        <li>
-                            @Html.HiddenFor(x => x.CheckedCategories[i].ID)
+                @for (var i = 0; i < Model.CheckedCategories.Count; i++)
+                {
+                    <p>
+                        @Html.CheckBoxFor(x => x.CheckedCategories[i].IsChecked)
+                        
+                        @Html.HiddenFor(x => x.CheckedCategories[i].ID)
 
-                            @Html.DisplayFor(x => x.CheckedCategories[i].Name)
-                            @Html.HiddenFor(x => x.CheckedCategories[i].Name)
-
-                            @Html.CheckBoxFor(x => x.CheckedCategories[i].IsChecked)
-                        </li>
-                    }
-                </ul>
+                        @Html.DisplayFor(x => x.CheckedCategories[i].Name)
+                        @Html.HiddenFor(x => x.CheckedCategories[i].Name)
+                    </p>
+                }
             </div>
         </div>
 
         <div class="panel panel-info">
             <div class="panel-heading">Programming Languages</div>
             <div class="panel-body">
-                <ul class="checkbox-select">
-                    @for (var i = 0; i < Model.CheckedProgrammingLanguages.Count; i++)
-                    {
-                        <li>
-                            @Html.HiddenFor(x => x.CheckedProgrammingLanguages[i].ID)
+                @for (var i = 0; i < Model.CheckedProgrammingLanguages.Count; i++)
+                {
+                    <p>
+                        @Html.CheckBoxFor(x => x.CheckedProgrammingLanguages[i].IsChecked)
 
-                            @Html.DisplayFor(x => x.CheckedProgrammingLanguages[i].Name)
-                            @Html.HiddenFor(x => x.CheckedProgrammingLanguages[i].Name)
+                        @Html.HiddenFor(x => x.CheckedProgrammingLanguages[i].ID)
 
-                            @Html.CheckBoxFor(x => x.CheckedProgrammingLanguages[i].IsChecked)
-                        </li>
-                    }
-                </ul>
+                        @Html.DisplayFor(x => x.CheckedProgrammingLanguages[i].Name)
+                        @Html.HiddenFor(x => x.CheckedProgrammingLanguages[i].Name)
+                    </p>
+                }
             </div>
         </div>
 
         <div class="panel panel-info">
             <div class="panel-heading">Frameworks</div>
             <div class="panel-body">
-                <ul class="checkbox-select">
-                    @for (var i = 0; i < Model.CheckedFrameworks.Count; i++)
-                    {
-                        <li>
-                            @Html.HiddenFor(x => x.CheckedFrameworks[i].ID)
+                @for (var i = 0; i < Model.CheckedFrameworks.Count; i++)
+                {
+                    <p>
+                        @Html.CheckBoxFor(x => x.CheckedFrameworks[i].IsChecked)
 
-                            @Html.DisplayFor(x => x.CheckedFrameworks[i].Name)
-                            @Html.HiddenFor(x => x.CheckedFrameworks[i].Name)
+                        @Html.HiddenFor(x => x.CheckedFrameworks[i].ID)
 
-                            @Html.CheckBoxFor(x => x.CheckedFrameworks[i].IsChecked)
-                        </li>
-                    }
-                </ul>
+                        @Html.DisplayFor(x => x.CheckedFrameworks[i].Name)
+                        @Html.HiddenFor(x => x.CheckedFrameworks[i].Name)
+                    </p>
+                }
             </div>
         </div>
 
         <div class="panel panel-info">
             <div class="panel-heading">Platforms</div>
             <div class="panel-body">
-                <ul class="checkbox-select">
-                    @for (var i = 0; i < Model.CheckedPlatforms.Count; i++)
-                    {
-                        <li>
-                            @Html.HiddenFor(x => x.CheckedPlatforms[i].ID)
+                @for (var i = 0; i < Model.CheckedPlatforms.Count; i++)
+                {
+                    <p>
+                        @Html.CheckBoxFor(x => x.CheckedPlatforms[i].IsChecked)
 
-                            @Html.DisplayFor(x => x.CheckedPlatforms[i].Name)
-                            @Html.HiddenFor(x => x.CheckedPlatforms[i].Name)
+                        @Html.HiddenFor(x => x.CheckedPlatforms[i].ID)
 
-                            @Html.CheckBoxFor(x => x.CheckedPlatforms[i].IsChecked)
-                        </li>
-                    }
-                </ul>
+                        @Html.DisplayFor(x => x.CheckedPlatforms[i].Name)
+                        @Html.HiddenFor(x => x.CheckedPlatforms[i].Name)
+                    </p>
+                }
             </div>
         </div>
 
         <div class="panel panel-info">
             <div class="panel-heading">Tags</div>
             <div class="panel-body">
-                <ul class="checkbox-select">
-                    @for (var i = 0; i < Model.CheckedTags.Count; i++)
-                    {
-                        <li>
-                            @Html.HiddenFor(x => x.CheckedTags[i].ID)
+                @for (var i = 0; i < Model.CheckedTags.Count; i++)
+                {
+                    <p>
+                        @Html.CheckBoxFor(x => x.CheckedTags[i].IsChecked)
+                        
+                        @Html.HiddenFor(x => x.CheckedTags[i].ID)
 
-                            @Html.DisplayFor(x => x.CheckedTags[i].Name)
-                            @Html.HiddenFor(x => x.CheckedTags[i].Name)
-
-                            @Html.CheckBoxFor(x => x.CheckedTags[i].IsChecked)
-                        </li>
-                    }
-                </ul>
+                        @Html.DisplayFor(x => x.CheckedTags[i].Name)
+                        @Html.HiddenFor(x => x.CheckedTags[i].Name)
+                    </p>
+                }
             </div>
         </div>
     </div>

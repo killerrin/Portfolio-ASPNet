@@ -5,6 +5,7 @@ using Portfolio.Contracts.Repositories;
 using Portfolio.Models;
 using Portfolio.DAL.Repositories;
 using Portfolio.DAL.Data;
+using Portfolio.DAL.Repositories.Collections;
 
 namespace Portfolio.WebUI.App_Start
 {
@@ -40,18 +41,20 @@ namespace Portfolio.WebUI.App_Start
             // container.LoadConfiguration();
 
             // TODO: Register your types here
-            container.RegisterType<DataContext>(new PerRequestLifetimeManager());
+            //container.RegisterType<DataContext>(new PerRequestLifetimeManager());
 
             container.RegisterType<IRepositoryBase<User>, UserRepository>();
             container.RegisterType<IRepositoryBase<Role>, RoleRepository>();
+
+            container.RegisterType<PortfolioRepositoryCollection>();
 
             container.RegisterType<IRepositoryBase<Category>, CategoryRepository>();
             container.RegisterType<IRepositoryBase<Framework>, FrameworkRepository>();
             container.RegisterType<IRepositoryBase<Platform>, PlatformRepository>();
             container.RegisterType<IRepositoryBase<ProgrammingLanguage>, ProgrammingLanguageRepository>();
             container.RegisterType<IRepositoryBase<Tag>, TagRepository>();
-
             container.RegisterType<IRepositoryBase<PortfolioEntry>, PortfolioEntryRepository>();
+
         }
     }
 }
