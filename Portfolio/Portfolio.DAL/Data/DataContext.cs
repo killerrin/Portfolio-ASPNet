@@ -10,11 +10,12 @@ namespace Portfolio.DAL.Data
 {
     public class DataContext : DbContext
     {
+        // A Per-HTTP Request Instance
         //public static DataContext Instance { get; private set; }
         //public static void BeginTransaction() { Instance = new DataContext(); }
         //public static void EndTransaction()
         //{
-        //    //Instance.Dispose();
+        //    Instance.Dispose();
         //    Instance = null;
         //}
 

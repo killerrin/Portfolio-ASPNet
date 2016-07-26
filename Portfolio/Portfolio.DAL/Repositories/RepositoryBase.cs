@@ -12,7 +12,10 @@ namespace Portfolio.DAL.Repositories
    public abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : class
     {
         internal DataContext context;
+        public DataContext Context { get { return context; } }
+
         internal DbSet<TEntity> dbSet;
+        public DbSet<TEntity> DBSet { get { return dbSet; } }
 
         public RepositoryBase(DataContext context)
         {

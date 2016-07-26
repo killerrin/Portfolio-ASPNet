@@ -28,28 +28,28 @@
                         <i class="glyphicon glyphicon-edit"></i> Edit
                     </a>
 
-                    @if (entry.UnpublishedAt == null)
-                    {
-                        <div class="btn-group btn-group-xs">
+                    <div class="btn-group btn-group-xs">
+                        @if (entry.UnpublishedAt == null)
+                        {
                             <a href="@Url.Action("Unpublish", new { id = entry.PortfolioEntryId })" class="btn btn-danger" data-post="Are you sure you want to unpublish this portfolio entry?">
                                 <i class="glyphicon glyphicon-remove"></i> Unpublish
                             </a>
-                            <a href="#" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="@Url.Action("Delete", new { id = entry.PortfolioEntryId })" data-post="Are you sure you want to delete this portfolio entry FOREVER?!">
-                                        <i class="glyphicon glyphicon-remove"></i> Delete
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    }
-                    else
-                    {
-                        <a href="@Url.Action("Restore", new { id = entry.PortfolioEntryId })" class="btn btn-xs btn-success" data-post="">
-                            <i class="glyphicon glyphicon-plus-sign"></i> Restore
-                        </a>
-                    }
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Restore", new { id = entry.PortfolioEntryId })" class="btn btn-xs btn-success" data-post="">
+                                <i class="glyphicon glyphicon-plus-sign"></i> Restore
+                            </a>
+                        }
+                        <a href="#" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="@Url.Action("Delete", new { id = entry.PortfolioEntryId })" data-post="Are you sure you want to delete this portfolio entry FOREVER?!">
+                                    <i class="glyphicon glyphicon-remove"></i> Delete
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </td>
             </tr>
         }

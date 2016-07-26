@@ -215,6 +215,8 @@
     <Content Include="Areas\Admin\Views\PortfolioEntry\Index.cshtml" />
     <Content Include="Areas\Admin\Views\PortfolioEntry\_PortfolioEntriesList.cshtml" />
     <Content Include="Areas\Admin\Views\PortfolioEntry\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\PortfolioEntry\_PortfolioEntryForm.cshtml" />
+    <Content Include="Areas\Admin\Views\PortfolioEntry\Edit.cshtml" />
     <None Include="PrivateSettings.config" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorsController.cs" />

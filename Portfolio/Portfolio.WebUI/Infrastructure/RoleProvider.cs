@@ -56,7 +56,7 @@ namespace Portfolio.WebUI.Infrastructure
 			List<string> users = new List<string>();
 
 			RoleRepository roleRepo = new RoleRepository(new DAL.Data.DataContext());
-			var role = roleRepo.GetAll().Where(x => x.Name == roleName).FirstOrDefault();
+            var role = roleRepo.GetAll().Where(x => x.Name == roleName).FirstOrDefault();
 			if (role != null)
 			{
 				users.AddRange(role.Users.Select(x => x.Username));
