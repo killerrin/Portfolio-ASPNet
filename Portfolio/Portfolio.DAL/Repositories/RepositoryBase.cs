@@ -1,4 +1,4 @@
-﻿using Portfolio.DAL.Data;
+﻿ using Portfolio.DAL.Data;
 using Portfolio.Contracts.Repositories;
 using System;
 using System.Collections.Generic;
@@ -21,6 +21,13 @@ namespace Portfolio.DAL.Repositories
         {
             this.context = context;
             this.dbSet = context.Set<TEntity>();
+        }
+
+        public virtual int Count { get { return GetAll().ToList().Count; } }
+
+        public virtual bool Exists(object id)
+        {
+            return GetById(id) != null;
         }
 
         public virtual TEntity GetById(object id)

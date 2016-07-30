@@ -46,6 +46,7 @@ namespace Portfolio.WebUI.App_Start
             container.RegisterType<IRepositoryBase<User>, UserRepository>();
             container.RegisterType<IRepositoryBase<Role>, RoleRepository>();
 
+            container.RegisterType<UserRepositoryCollection>();
             container.RegisterType<PortfolioRepositoryCollection>();
 
             container.RegisterType<IRepositoryBase<Category>, CategoryRepository>();

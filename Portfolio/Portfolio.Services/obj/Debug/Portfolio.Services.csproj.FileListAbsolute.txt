@@ -2,11 +2,9 @@ C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\Portfolio.Services.pdb
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\Portfolio.Contracts.dll
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\Portfolio.DAL.dll
-C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\Portfolio.Model.dll
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\EntityFramework.dll
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\Portfolio.Contracts.pdb
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\Portfolio.DAL.pdb
-C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\Portfolio.Model.pdb
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\EntityFramework.xml
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\obj\Debug\Portfolio.Services.csprojResolveAssemblyReference.cache
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\obj\Debug\Portfolio.Services.dll
@@ -27,3 +25,5 @@ C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\System.Web.WebPages.xml
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\Portfolio.Models.dll
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.Services\bin\Debug\Portfolio.Models.pdb

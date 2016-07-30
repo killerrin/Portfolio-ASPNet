@@ -33,18 +33,18 @@ namespace Portfolio.Models
         public string MicrosoftWindowsStoreUrl { get; set; }
         public string OtherMarketplaceUrls { get; set; }
 
-        public virtual ICollection<Category> Categories { get; set; }
-        public virtual ICollection<ProgrammingLanguage> ProgrammingLanguages { get; set; }
-        public virtual ICollection<Framework> Frameworks { get; set; }
-        public virtual ICollection<Platform> Platforms { get; set; }
-        public virtual ICollection<Tag> Tags { get; set; }
+        public virtual ICollection<PortfolioEntryCategory> Categories { get; set; }
+        public virtual ICollection<PortfolioEntryFramework> Frameworks { get; set; }
+        public virtual ICollection<PortfolioEntryPlatform> Platforms { get; set; }
+        public virtual ICollection<PortfolioEntryProgrammingLanguage> ProgrammingLanguages { get; set; }
+        public virtual ICollection<PortfolioEntryTag> Tags { get; set; }
         public PortfolioEntry()
         {
-            Categories = new List<Category>();
-            ProgrammingLanguages = new List<ProgrammingLanguage>();
-            Frameworks = new List<Framework>();
-            Platforms = new List<Platform>();
-            Tags = new List<Tag>();
+            Categories = new List<PortfolioEntryCategory>();
+            Frameworks = new List<PortfolioEntryFramework>();
+            Platforms = new List<PortfolioEntryPlatform>();
+            ProgrammingLanguages = new List<PortfolioEntryProgrammingLanguage>();
+            Tags = new List<PortfolioEntryTag>();
         }
     }
 }

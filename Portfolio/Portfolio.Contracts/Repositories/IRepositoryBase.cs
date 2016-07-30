@@ -4,6 +4,7 @@ namespace Portfolio.Contracts.Repositories
     public interface IRepositoryBase<TEntity>
      where TEntity : class
     {
+
         void Commit();
         void Delete(object id);
         void Delete(TEntity entity);
@@ -15,5 +16,8 @@ namespace Portfolio.Contracts.Repositories
         System.Linq.IQueryable<TEntity> GetPaged(int top = 20, int skip = 0, object orderBy = null, object filter = null);
         void Insert(TEntity entity);
         void Update(TEntity entity);
+
+        int Count { get; }
+        bool Exists(object id);
     }
 }

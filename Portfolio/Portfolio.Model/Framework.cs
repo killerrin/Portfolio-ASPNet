@@ -16,10 +16,10 @@ namespace Portfolio.Models
         [Required]
         public string Slug { get; set; }
 
-        public virtual ICollection<PortfolioEntry> PortfolioEntries { get; set; }
+        public virtual ICollection<PortfolioEntryFramework> PortfolioEntries { get; set; }
         public Framework()
         {
-            PortfolioEntries = new List<PortfolioEntry>();
+            PortfolioEntries = new List<PortfolioEntryFramework>();
         }
     }
 }

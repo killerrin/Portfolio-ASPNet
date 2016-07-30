@@ -1,10 +1,12 @@
-﻿using Portfolio.DAL.Repositories;
+﻿using Microsoft.Practices.ObjectBuilder2;
+using Portfolio.DAL.Repositories;
 using Portfolio.DAL.Repositories.Collections;
 using Portfolio.Model.Forms;
 using Portfolio.Models;
 using Portfolio.WebUI.Areas.Admin.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,28 +16,16 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
     [Authorize(Roles = "Admin")]
     public class PortfolioEntryController : Controller
     {
-        PortfolioEntryRepository PortfolioEntryRepo;
-        CategoryRepository CategoryRepo;
-        FrameworkRepository FrameworkRepo;
-        PlatformRepository PlatformRepo;
-        ProgrammingLanguageRepository ProgrammingLanguageRepo;
-        TagRepository TagRepo;
-
+        PortfolioRepositoryCollection Repositories;
         public PortfolioEntryController(PortfolioRepositoryCollection repoCollection)
         {
-            PortfolioEntryRepo = repoCollection.PortfolioEntryRepo;
-
-            CategoryRepo = repoCollection.CategoryRepo;
-            FrameworkRepo = repoCollection.FrameworkRepo;
-            PlatformRepo = repoCollection.PlatformRepo;
-            ProgrammingLanguageRepo = repoCollection.ProgrammingLanguageRepo;
-            TagRepo = repoCollection.TagRepo;
+            Repositories = repoCollection;
         }
 
         // GET: Admin/PortfolioEntry
         public ActionResult Index()
         {
-            var entries = PortfolioEntryRepo.GetAll().ToList();
+            var entries = Repositories.PortfolioEntryRepo.GetAll().ToList();
 
             IndexPortfolioEntryViewModel viewModel = new IndexPortfolioEntryViewModel();
             viewModel.Published = entries.Where(x => x.UnpublishedAt == null).ToList();
@@ -47,18 +37,18 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
         public ActionResult Create()
         {
             PortfolioEntryForm form = new PortfolioEntryForm();
-            form.CheckedCategories = CategoryRepo.GetAll().ToList().Select(x => new CheckBoxItem(x.CategoryId, x.Name)).ToList();
-            form.CheckedProgrammingLanguages = ProgrammingLanguageRepo.GetAll().ToList().Select(x => new CheckBoxItem(x.ProgrammingLanguageId, x.Name)).ToList();
-            form.CheckedFrameworks = FrameworkRepo.GetAll().ToList().Select(x => new CheckBoxItem(x.FrameworkId, x.Name)).ToList();
-            form.CheckedPlatforms = PlatformRepo.GetAll().ToList().Select(x => new CheckBoxItem(x.PlatformId, x.Name)).ToList();
-            form.CheckedTags = TagRepo.GetAll().ToList().Select(x => new CheckBoxItem(x.TagId, x.Name)).ToList();
+            form.CheckedCategories = Repositories.CategoryRepo.GetAll().ToList().Select(x => new CheckBoxItem(x.CategoryId, x.Name)).ToList();
+            form.CheckedProgrammingLanguages = Repositories.ProgrammingLanguageRepo.GetAll().ToList().Select(x => new CheckBoxItem(x.ProgrammingLanguageId, x.Name)).ToList();
+            form.CheckedFrameworks = Repositories.FrameworkRepo.GetAll().ToList().Select(x => new CheckBoxItem(x.FrameworkId, x.Name)).ToList();
+            form.CheckedPlatforms = Repositories.PlatformRepo.GetAll().ToList().Select(x => new CheckBoxItem(x.PlatformId, x.Name)).ToList();
+            form.CheckedTags = Repositories.TagRepo.GetAll().ToList().Select(x => new CheckBoxItem(x.TagId, x.Name)).ToList();
 
             return View(form);
         }
         [HttpPost]
         public ActionResult Create(PortfolioEntryForm form)
         {
-            var all = PortfolioEntryRepo.GetAll();
+            var all = Repositories.PortfolioEntryRepo.GetAll();
             if (all.Where(x => x.Name.Equals(form.Slug)).FirstOrDefault() != null)
                 ModelState.AddModelError(nameof(form.Slug), "A Portfolio Entry with this Slug already exists");
 
@@ -68,21 +58,63 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
             var entry = ConvertToEntry(form);
             entry.CreatedAt = DateTime.UtcNow;
 
-            var reconciledTags = ReconcileTags(form);
-            entry.Categories = reconciledTags.Categories;
-            entry.ProgrammingLanguages = reconciledTags.ProgrammingLanguages;
-            entry.Frameworks = reconciledTags.Frameworks;
-            entry.Platforms = reconciledTags.Platforms;
-            entry.Tags = reconciledTags.Tags;
+            Repositories.PortfolioEntryRepo.Insert(entry);
+            Repositories.PortfolioEntryRepo.Commit();
 
-            PortfolioEntryRepo.Insert(entry);
-            PortfolioEntryRepo.Commit();
+            Debug.WriteLine($"PortfolioEntry created with ID: {entry.PortfolioEntryId}");
+
+            var reconciledTags = ReconcileTags(form);
+            foreach (var tag in reconciledTags.Item1)
+            {
+                var x = new PortfolioEntryCategory();
+                x.CategoryId = tag.CategoryId;
+                x.PortfolioEntryId = entry.PortfolioEntryId;
+                Repositories.PortfolioEntry_CategoryRepo.Insert(x);
+            }
+            Repositories.PortfolioEntry_CategoryRepo.Commit();
+
+            foreach (var tag in reconciledTags.Item2)
+            {
+                var x = new PortfolioEntryFramework();
+                x.FrameworkId = tag.FrameworkId;
+                x.PortfolioEntryId = entry.PortfolioEntryId;
+                Repositories.PortfolioEntry_FrameworkRepo.Insert(x);
+            }
+            Repositories.PortfolioEntry_FrameworkRepo.Commit();
+
+            foreach (var tag in reconciledTags.Item3)
+            {
+                var x = new PortfolioEntryPlatform();
+                x.PlatformId = tag.PlatformId;
+                x.PortfolioEntryId = entry.PortfolioEntryId;
+                Repositories.PortfolioEntry_PlatformRepo.Insert(x);
+            }
+            Repositories.PortfolioEntry_PlatformRepo.Commit();
+
+            foreach (var tag in reconciledTags.Item4)
+            {
+                var x = new PortfolioEntryProgrammingLanguage();
+                x.ProgrammingLanguageId = tag.ProgrammingLanguageId;
+                x.PortfolioEntryId = entry.PortfolioEntryId;
+                Repositories.PortfolioEntry_ProgrammingLanguageRepo.Insert(x);
+            }
+            Repositories.PortfolioEntry_ProgrammingLanguageRepo.Commit();
+
+            foreach (var tag in reconciledTags.Item5)
+            {
+                var x = new PortfolioEntryTag();
+                x.TagId = tag.TagId;
+                x.PortfolioEntryId = entry.PortfolioEntryId;
+                Repositories.PortfolioEntry_TagRepo.Insert(x);
+            }
+            Repositories.PortfolioEntry_TagRepo.Commit();
+
             return RedirectToAction("Index");
         }
 
         public ActionResult Edit(int id)
         {
-            var item = PortfolioEntryRepo.GetById(id);
+            var item = Repositories.PortfolioEntryRepo.GetById(id);
             if (item == null)
                 return RedirectToAction("Index");
 
@@ -107,31 +139,31 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
             form.MicrosoftWindowsStoreUrl = item.MicrosoftWindowsStoreUrl;
             form.OtherMarketplaceUrls = item.OtherMarketplaceUrls;
 
-            form.CheckedCategories = CategoryRepo.GetAll().ToList().Select(x => new CheckBoxItem(x.CategoryId, x.Name)).ToList();
+            form.CheckedCategories = Repositories.CategoryRepo.GetAll().ToList().Select(x => new CheckBoxItem(x.CategoryId, x.Name)).ToList();
             foreach (var checkBox in form.CheckedCategories)
                 foreach (var itemCategory in item.Categories)
                     if (checkBox.ID == itemCategory.CategoryId)
                         checkBox.IsChecked = true;
 
-            form.CheckedProgrammingLanguages = ProgrammingLanguageRepo.GetAll().ToList().Select(x => new CheckBoxItem(x.ProgrammingLanguageId, x.Name)).ToList();
+            form.CheckedProgrammingLanguages = Repositories.ProgrammingLanguageRepo.GetAll().ToList().Select(x => new CheckBoxItem(x.ProgrammingLanguageId, x.Name)).ToList();
             foreach (var checkBox in form.CheckedProgrammingLanguages)
                 foreach (var itemCategory in item.ProgrammingLanguages)
                     if (checkBox.ID == itemCategory.ProgrammingLanguageId)
                         checkBox.IsChecked = true;
 
-            form.CheckedFrameworks = FrameworkRepo.GetAll().ToList().Select(x => new CheckBoxItem(x.FrameworkId, x.Name)).ToList();
+            form.CheckedFrameworks = Repositories.FrameworkRepo.GetAll().ToList().Select(x => new CheckBoxItem(x.FrameworkId, x.Name)).ToList();
             foreach (var checkBox in form.CheckedFrameworks)
                 foreach (var itemCategory in item.Frameworks)
                     if (checkBox.ID == itemCategory.FrameworkId)
                         checkBox.IsChecked = true;
 
-            form.CheckedPlatforms = PlatformRepo.GetAll().ToList().Select(x => new CheckBoxItem(x.PlatformId, x.Name)).ToList();
+            form.CheckedPlatforms = Repositories.PlatformRepo.GetAll().ToList().Select(x => new CheckBoxItem(x.PlatformId, x.Name)).ToList();
             foreach (var checkBox in form.CheckedPlatforms)
                 foreach (var itemCategory in item.Platforms)
                     if (checkBox.ID == itemCategory.PlatformId)
                         checkBox.IsChecked = true;
 
-            form.CheckedTags = TagRepo.GetAll().ToList().Select(x => new CheckBoxItem(x.TagId, x.Name)).ToList();
+            form.CheckedTags = Repositories.TagRepo.GetAll().ToList().Select(x => new CheckBoxItem(x.TagId, x.Name)).ToList();
             foreach (var checkBox in form.CheckedTags)
                 foreach (var itemCategory in item.Tags)
                     if (checkBox.ID == itemCategory.TagId)
@@ -142,53 +174,18 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Edit(PortfolioEntryForm form, int id)
         {
-            var all = PortfolioEntryRepo.GetAll().Where(x => x.PortfolioEntryId != form.PortfolioEntryId);
+            var all = Repositories.PortfolioEntryRepo.GetAll().Where(x => x.PortfolioEntryId != form.PortfolioEntryId);
             if (all.Where(x => x.Name.Equals(form.Slug)).FirstOrDefault() != null)
                 ModelState.AddModelError(nameof(form.Slug), "A Portfolio Entry with this Slug already exists");
 
             if (!ModelState.IsValid)
                 return View(form);
 
+            // Update the Entity's Fields
             var entry = ConvertToEntry(form);
-            var reconciledTags = ReconcileTags(form);
 
-            PortfolioEntryRepo.Context.Entry(entry).Collection("Categories").Load();
-            entry.Categories.Clear();
-            foreach (var item in reconciledTags.Categories)
-            {
-                entry.Categories.Add(item);
-            }
-            
-            PortfolioEntryRepo.Context.Entry(entry).Collection("ProgrammingLanguages").Load();
-            entry.Categories.Clear();
-            foreach (var item in reconciledTags.ProgrammingLanguages)
-            {
-                entry.ProgrammingLanguages.Add(item);
-            }
-            
-            PortfolioEntryRepo.Context.Entry(entry).Collection("Frameworks").Load();
-            entry.Categories.Clear();
-            foreach (var item in reconciledTags.Frameworks)
-            {
-                entry.Frameworks.Add(item);
-            }
-            
-            PortfolioEntryRepo.Context.Entry(entry).Collection("Platforms").Load();
-            entry.Categories.Clear();
-            foreach (var item in reconciledTags.Platforms)
-            {
-                entry.Platforms.Add(item);
-            }
-            
-            PortfolioEntryRepo.Context.Entry(entry).Collection("Tags").Load();
-            entry.Categories.Clear();
-            foreach (var item in reconciledTags.Tags)
-            {
-                entry.Tags.Add(item);
-            }
-
-            PortfolioEntryRepo.Update(entry);
-            PortfolioEntryRepo.Commit();
+            Repositories.PortfolioEntryRepo.Update(entry);
+            Repositories.PortfolioEntryRepo.Commit();
             return RedirectToAction("Index");
         }
 
@@ -196,7 +193,7 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
         {
             PortfolioEntry entry = new PortfolioEntry();
             if (form.PortfolioEntryId != 0)
-                entry = PortfolioEntryRepo.GetById(form.PortfolioEntryId);
+                entry = Repositories.PortfolioEntryRepo.GetById(form.PortfolioEntryId);
 
             entry.Name = form.Name;
             entry.Slug = form.Slug;
@@ -220,57 +217,56 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
             return entry;
         }
 
-        private PortfolioEntry ReconcileTags(PortfolioEntryForm form)
+        private Tuple<List<Category>, List<Framework>, List<Platform>, List<ProgrammingLanguage>, List<Tag>> ReconcileTags(PortfolioEntryForm form)
         {
-            PortfolioEntry entry = new PortfolioEntry();
-            var categories = CategoryRepo.GetAll().ToList();
+            var categories = Repositories.CategoryRepo.GetAll().ToList();
             categories.RemoveAll(x => form.CheckedCategories.Where(checkbox => !checkbox.IsChecked).Where(checkbox => checkbox.ID == x.CategoryId).FirstOrDefault() != null);
-            entry.Categories = categories;
 
-            var programminglanguages = ProgrammingLanguageRepo.GetAll().ToList();
-            programminglanguages.RemoveAll(x => form.CheckedProgrammingLanguages.Where(checkbox => !checkbox.IsChecked).Where(checkbox => checkbox.ID == x.ProgrammingLanguageId).FirstOrDefault() != null);
-            entry.ProgrammingLanguages = programminglanguages;
-
-            var frameworks = FrameworkRepo.GetAll().ToList();
+            var frameworks = Repositories.FrameworkRepo.GetAll().ToList();
             frameworks.RemoveAll(x => form.CheckedFrameworks.Where(checkbox => !checkbox.IsChecked).Where(checkbox => checkbox.ID == x.FrameworkId).FirstOrDefault() != null);
-            entry.Frameworks = frameworks;
 
-            var platforms = PlatformRepo.GetAll().ToList();
+            var platforms = Repositories.PlatformRepo.GetAll().ToList();
             platforms.RemoveAll(x => form.CheckedPlatforms.Where(checkbox => !checkbox.IsChecked).Where(checkbox => checkbox.ID == x.PlatformId).FirstOrDefault() != null);
-            entry.Platforms = platforms;
 
-            var tags = TagRepo.GetAll().ToList();
+            var programminglanguages = Repositories.ProgrammingLanguageRepo.GetAll().ToList();
+            programminglanguages.RemoveAll(x => form.CheckedProgrammingLanguages.Where(checkbox => !checkbox.IsChecked).Where(checkbox => checkbox.ID == x.ProgrammingLanguageId).FirstOrDefault() != null);
+
+            var tags = Repositories.TagRepo.GetAll().ToList();
             tags.RemoveAll(x => form.CheckedTags.Where(checkbox => !checkbox.IsChecked).Where(checkbox => checkbox.ID == x.TagId).FirstOrDefault() != null);
-            entry.Tags = tags;
 
-            return entry;
+            return new Tuple<List<Category>, List<Framework>, List<Platform>, List<ProgrammingLanguage>, List<Tag>>(
+                categories,
+                frameworks,
+                platforms,
+                programminglanguages,
+                tags);
         }
 
         [HttpPost]
         public ActionResult Unpublish(int id)
         {
-            var entry = PortfolioEntryRepo.GetById(id);
+            var entry = Repositories.PortfolioEntryRepo.GetById(id);
             entry.UnpublishedAt = DateTime.UtcNow;
 
-            PortfolioEntryRepo.Update(entry);
-            PortfolioEntryRepo.Commit();
+            Repositories.PortfolioEntryRepo.Update(entry);
+            Repositories.PortfolioEntryRepo.Commit();
             return RedirectToAction("Index");
         }
         [HttpPost]
         public ActionResult Restore(int id)
         {
-            var entry = PortfolioEntryRepo.GetById(id);
+            var entry = Repositories.PortfolioEntryRepo.GetById(id);
             entry.UnpublishedAt = null;
 
-            PortfolioEntryRepo.Update(entry);
-            PortfolioEntryRepo.Commit();
+            Repositories.PortfolioEntryRepo.Update(entry);
+            Repositories.PortfolioEntryRepo.Commit();
             return RedirectToAction("Index");
         }
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            PortfolioEntryRepo.Delete(id);
-            PortfolioEntryRepo.Commit();
+            Repositories.PortfolioEntryRepo.Delete(id);
+            Repositories.PortfolioEntryRepo.Commit();
             return RedirectToAction("Index");
         }
     }

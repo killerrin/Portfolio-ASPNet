@@ -39,7 +39,6 @@ C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\Newtonso
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\Owin.dll
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\Portfolio.Contracts.dll
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\Portfolio.DAL.dll
-C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\Portfolio.Model.dll
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\Portfolio.Services.dll
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\System.Web.Helpers.dll
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\System.Web.Mvc.dll
@@ -52,7 +51,6 @@ C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\WebActiv
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\WebGrease.dll
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\Portfolio.Contracts.pdb
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\Portfolio.DAL.pdb
-C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\Portfolio.Model.pdb
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\Portfolio.Services.pdb
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\Microsoft.Practices.ServiceLocation.pdb
@@ -90,3 +88,5 @@ C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\obj\Debug\Po
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\BCrypt.Net.dll
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\BCrypt.Net.pdb
 C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\BCrypt.Net.xml
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\Portfolio.Models.dll
+C:\Users\andre\Documents\GitHub\Portfolio\Portfolio\Portfolio.WebUI\bin\Portfolio.Models.pdb

@@ -65,6 +65,7 @@ namespace Portfolio.Services
                 FakeHash();
             }
 
+
             // If there were errors, jump out now
             if (!Errors.IsValid) return null;
 
@@ -75,6 +76,7 @@ namespace Portfolio.Services
             user.Email = newAccount.Email;
             userRepo.Insert(user);
             userRepo.Commit();
+
             return user;
         }
 

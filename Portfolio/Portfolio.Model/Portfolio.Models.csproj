@@ -7,8 +7,8 @@
     <ProjectGuid>{013BCD3C-865D-4670-8DF6-B5499F6AED46}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Portfolio.Model</RootNamespace>
-    <AssemblyName>Portfolio.Model</AssemblyName>
+    <RootNamespace>Portfolio.Models</RootNamespace>
+    <AssemblyName>Portfolio.Models</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -64,6 +64,11 @@
     <Compile Include="Forms\CreateAccountForm.cs" />
     <Compile Include="Forms\LoginAccountForm.cs" />
     <Compile Include="PortfolioEntry.cs" />
+    <Compile Include="PortfolioEntryProgrammingLanguage.cs" />
+    <Compile Include="PortfolioEntryTag.cs" />
+    <Compile Include="PortfolioEntryPlatform.cs" />
+    <Compile Include="PortfolioEntryFramework.cs" />
+    <Compile Include="PortfolioEntryCategory.cs" />
     <Compile Include="Tag.cs" />
     <Compile Include="Platform.cs" />
     <Compile Include="Framework.cs" />
