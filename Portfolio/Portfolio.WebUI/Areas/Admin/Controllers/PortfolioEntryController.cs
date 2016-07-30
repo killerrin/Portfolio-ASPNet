@@ -186,6 +186,80 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
 
             Repositories.PortfolioEntryRepo.Update(entry);
             Repositories.PortfolioEntryRepo.Commit();
+
+            // Remove all the Current Tags
+            var categories = entry.Categories.Where(x => x.PortfolioEntryId == entry.PortfolioEntryId).ToList();
+            foreach (var tag in categories)
+                Repositories.PortfolioEntry_CategoryRepo.Delete(tag);
+            Repositories.PortfolioEntry_CategoryRepo.Commit();
+
+            var frameworks = entry.Frameworks.Where(x => x.PortfolioEntryId == entry.PortfolioEntryId).ToList();
+            foreach (var tag in frameworks)
+                Repositories.PortfolioEntry_FrameworkRepo.Delete(tag);
+            Repositories.PortfolioEntry_FrameworkRepo.Commit();
+
+            var platforms = entry.Platforms.Where(x => x.PortfolioEntryId == entry.PortfolioEntryId).ToList();
+            foreach (var tag in platforms)
+                Repositories.PortfolioEntry_PlatformRepo.Delete(tag);
+            Repositories.PortfolioEntry_PlatformRepo.Commit();
+
+            var programmingLanguages = entry.ProgrammingLanguages.Where(x => x.PortfolioEntryId == entry.PortfolioEntryId).ToList();
+            foreach (var tag in programmingLanguages)
+                Repositories.PortfolioEntry_ProgrammingLanguageRepo.Delete(tag);
+            Repositories.PortfolioEntry_ProgrammingLanguageRepo.Commit();
+
+            var tags = entry.Tags.Where(x => x.PortfolioEntryId == entry.PortfolioEntryId).ToList();
+            foreach (var tag in tags)
+                Repositories.PortfolioEntry_TagRepo.Delete(tag);
+            Repositories.PortfolioEntry_TagRepo.Commit();
+
+            // Add the new Many-To-Many Tags
+            var reconciledTags = ReconcileTags(form);
+            foreach (var tag in reconciledTags.Item1)
+            {
+                var x = new PortfolioEntryCategory();
+                x.CategoryId = tag.CategoryId;
+                x.PortfolioEntryId = entry.PortfolioEntryId;
+                Repositories.PortfolioEntry_CategoryRepo.Insert(x);
+            }
+            Repositories.PortfolioEntry_CategoryRepo.Commit();
+
+            foreach (var tag in reconciledTags.Item2)
+            {
+                var x = new PortfolioEntryFramework();
+                x.FrameworkId = tag.FrameworkId;
+                x.PortfolioEntryId = entry.PortfolioEntryId;
+                Repositories.PortfolioEntry_FrameworkRepo.Insert(x);
+            }
+            Repositories.PortfolioEntry_FrameworkRepo.Commit();
+
+            foreach (var tag in reconciledTags.Item3)
+            {
+                var x = new PortfolioEntryPlatform();
+                x.PlatformId = tag.PlatformId;
+                x.PortfolioEntryId = entry.PortfolioEntryId;
+                Repositories.PortfolioEntry_PlatformRepo.Insert(x);
+            }
+            Repositories.PortfolioEntry_PlatformRepo.Commit();
+
+            foreach (var tag in reconciledTags.Item4)
+            {
+                var x = new PortfolioEntryProgrammingLanguage();
+                x.ProgrammingLanguageId = tag.ProgrammingLanguageId;
+                x.PortfolioEntryId = entry.PortfolioEntryId;
+                Repositories.PortfolioEntry_ProgrammingLanguageRepo.Insert(x);
+            }
+            Repositories.PortfolioEntry_ProgrammingLanguageRepo.Commit();
+
+            foreach (var tag in reconciledTags.Item5)
+            {
+                var x = new PortfolioEntryTag();
+                x.TagId = tag.TagId;
+                x.PortfolioEntryId = entry.PortfolioEntryId;
+                Repositories.PortfolioEntry_TagRepo.Insert(x);
+            }
+            Repositories.PortfolioEntry_TagRepo.Commit();
+
             return RedirectToAction("Index");
         }
 
